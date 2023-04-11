@@ -26,14 +26,50 @@ namespace ProbableFinalExer
             List<OptionAnswer> answers = DatabaseConnector.GetOptionAnswer();
             List<Result> results = DatabaseConnector.GetResult();
             List<Temp> temps = DatabaseConnector.GetTemp();
+            List<User> users = DatabaseConnector.GetUsers();
 
             //View
             List<Score> score = DatabaseConnector.GetScoreFromTets();
-            
 
+            /*
             foreach (var item in score)
                 item.PrintInfo();
+            */
+            foreach (var item in users)
+                item.PrintInfo();
+            bool input = false, isAdmin = false,  isTeacher = false;
+            while (!input)
+            {
+                Console.Write("Login: ");
+                string inputLogin = Console.ReadLine();
+                Console.Write("Password: ");
+                string intputPassword = Console.ReadLine();
 
+
+                foreach (var item in users)
+                {
+                    if (item.UserLogin == inputLogin && item.UserPassword == intputPassword && item.UserStanding == 0)
+                    { input = true; isAdmin = true; break; }
+                    else if (item.UserLogin == inputLogin && item.UserPassword == intputPassword && item.UserStanding == 1)
+                    { input = true; isTeacher = true; break; }
+                    else if (item.UserLogin == inputLogin && item.UserPassword == intputPassword && item.UserStanding == 2)
+                    { input = true; break; }
+                }
+            }
+            Console.WriteLine(input + " " + isAdmin + " " + isTeacher);
+            //if(input && )
+            /*
+            foreach (var item in tests)
+            {
+                Console.Write(item.testName + " ");
+                foreach (var item2 in users)
+                {
+                    if (item2.IDUser == item.CreaterID)
+                        Console.WriteLine(item2.UserName);
+                }
+                
+            }
+            */
             foreach (var item in tests)
                 item.PrintInfo();
 

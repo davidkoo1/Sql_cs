@@ -8,10 +8,11 @@ namespace ProbableFinalExer
         public string testName;
         public int testTime;
         public string testDiscripcion;
+        public int CreaterID;
 
         public void PrintInfo()
         {
-            Console.WriteLine(IDTest + " " + testName + " " + testTime + " " + testDiscripcion);
+            Console.WriteLine(IDTest + " " + testName + " " + testTime + " " + testDiscripcion + " " + CreaterID);
         }
     }
 
@@ -64,6 +65,25 @@ namespace ProbableFinalExer
         }
     }
 
+
+    public class User
+    {
+        public int IDUser;
+        public string UserLogin;
+        public string UserPassword;
+        public string UserName;
+        public string UserSurname;
+        public int UserStanding;
+        public int UserWhoRegId;
+        public bool UserStatus;
+
+        public void PrintInfo()
+        {
+            Console.WriteLine(IDUser + " " + UserLogin + " " + UserPassword + " " + UserName + " " + UserSurname + " " + UserStanding + " " +
+                + UserWhoRegId + " " + UserStatus);
+        }
+    }
+
     //View
     public class Score
     {
@@ -75,4 +95,6 @@ namespace ProbableFinalExer
             Console.WriteLine(testID + " " + score);
         }
     }
+
+    
 }

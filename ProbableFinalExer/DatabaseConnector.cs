@@ -64,6 +64,7 @@ namespace ProbableFinalExer
                     t.testName = dataReader.GetString(1);
                     t.testTime = dataReader.GetInt32(2);
                     t.testDiscripcion = dataReader.GetString(3);
+                    t.CreaterID = dataReader.GetInt32(4);
 
                     ret.Add(t);
                 }
@@ -208,6 +209,43 @@ namespace ProbableFinalExer
             return ret;
         }
 
+        public static List<User> GetUsers()
+        {
+            List<User> ret = new List<User>();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                connection.Open();
+
+                SqlCommand command;
+                SqlDataReader dataReader;
+                string GetSqlCommand;
+
+                GetSqlCommand = "select * FROM Users";
+
+                command = new SqlCommand(GetSqlCommand, connection);
+                dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    User u = new User();
+
+                    u.IDUser = dataReader.GetInt32(0);
+                    u.UserLogin = dataReader.GetString(1);
+                    u.UserPassword = dataReader.GetString(2);
+                    u.UserName = dataReader.GetString(3);
+                    u.UserSurname = dataReader.GetString(4);
+                    u.UserStanding = dataReader.GetInt32(5);
+                    u.UserWhoRegId = dataReader.GetInt32(6);
+                    u.UserStatus = dataReader.GetBoolean(7);
+
+                    ret.Add(u);
+                }
+
+            }
+
+            return ret;
+        }
         public static void AddTest(Test newTest)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
