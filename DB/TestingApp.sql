@@ -132,7 +132,7 @@ UserStanding INT,
 UserWhoRegId INT,
 UserStatus BIT, --2 значения 1 -true, 0 - false; статус если пользователь онлайн
 )
-
+select * FROM Users
 CREATE TABLE Tags
 (
 TagId INT PRIMARY KEY,
@@ -156,9 +156,10 @@ CREATE TABLE TryUsers
 TryId INT PRIMARY KEY,
 IdUser INT FOREIGN KEY REFERENCES Users(UserId),
 IdTest INT FOREIGN KEY REFERENCES Test(TestId),
-Start DATETIME,
-Finish DATETIME
+Start VARCHAR(30),
+Finish VARCHAR(30)
 )
+select * from TryUsers
 
 CREATE TABLE UserAnswer
 (

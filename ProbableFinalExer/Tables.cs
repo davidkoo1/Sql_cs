@@ -77,6 +77,10 @@ namespace ProbableFinalExer
         public int UserWhoRegId;
         public bool UserStatus;
 
+        
+        public bool IsAdmin { get { return UserStanding == 0; } }
+        public bool IsTeacher { get { return UserStanding == 1; } }
+
         public void PrintInfo()
         {
             Console.WriteLine(IDUser + " " + UserLogin + " " + UserPassword + " " + UserName + " " + UserSurname + " " + UserStanding + " " +
@@ -84,6 +88,18 @@ namespace ProbableFinalExer
         }
     }
 
+    public class Try
+    {
+        public int IDTry;
+        public int userID;
+        public int testID;
+        public string Start, Finish;
+
+        public void PrintInfo()
+        {
+            Console.WriteLine(IDTry + " " + userID + " " + testID + " " + Start + " " + Finish);
+        }
+    }
     //View
     public class Score
     {

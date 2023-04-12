@@ -246,6 +246,63 @@ namespace ProbableFinalExer
 
             return ret;
         }
+
+        public static List<Try> GetTry()
+        {
+            List<Try> ret = new List<Try>();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                connection.Open();
+
+                SqlCommand command;
+                SqlDataReader dataReader;
+                string GetSqlCommand;
+
+                GetSqlCommand = "select * FROM TryUsers";
+
+                command = new SqlCommand(GetSqlCommand, connection);
+                dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Try t = new Try();
+
+                    t.IDTry = dataReader.GetInt32(0);
+                    t.userID = dataReader.GetInt32(1);
+                    t.testID = dataReader.GetInt32(2);
+                    t.Start = dataReader.GetString(3);
+                    t.Finish = dataReader.GetString(4);
+
+                    ret.Add(t);
+                }
+
+            }
+
+            return ret;
+        }
+        public static void AddTry(Try newTry)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "INSERT INTO Test VALUES (@TryId, @IdUser, @IdTest, @Start, @Finish)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TryId", newTry.IDTry);
+                    command.Parameters.AddWithValue("@IdUser", newTry.userID);
+                    command.Parameters.AddWithValue("@IdTest", newTry.testID);
+                    command.Parameters.AddWithValue("@Start", newTry.Start);
+                    command.Parameters.AddWithValue("@Finish", newTry.Finish);
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
         public static void AddTest(Test newTest)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))

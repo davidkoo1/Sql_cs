@@ -17,9 +17,15 @@ namespace ProbableFinalExer
             return questions.Max(x => x.IDQuestion) + 1;
         }
 
+        static int GetNewTryId(List<Try> trys)
+        {
+            return trys.Max(x => x.IDTry) + 1;
+        }
 
         static int Main(string[] args)
         {
+            DateTime dateTime = new DateTime();
+            dateTime = DateTime.Now;
             //Tables
             List<Test> tests = DatabaseConnector.GetTests();
             List<Question> questions = DatabaseConnector.GetQuestions();
@@ -27,6 +33,7 @@ namespace ProbableFinalExer
             List<Result> results = DatabaseConnector.GetResult();
             List<Temp> temps = DatabaseConnector.GetTemp();
             List<User> users = DatabaseConnector.GetUsers();
+            List<Try> trys = DatabaseConnector.GetTry();
 
             //View
             List<Score> score = DatabaseConnector.GetScoreFromTets();
@@ -37,7 +44,9 @@ namespace ProbableFinalExer
             */
             foreach (var item in users)
                 item.PrintInfo();
-            bool input = false, isAdmin = false,  isTeacher = false;
+
+            User currentUser = new User();
+            bool input = false;
             while (!input)
             {
                 Console.Write("Login: ");
@@ -48,16 +57,19 @@ namespace ProbableFinalExer
 
                 foreach (var item in users)
                 {
-                    if (item.UserLogin == inputLogin && item.UserPassword == intputPassword && item.UserStanding == 0)
-                    { input = true; isAdmin = true; break; }
-                    else if (item.UserLogin == inputLogin && item.UserPassword == intputPassword && item.UserStanding == 1)
-                    { input = true; isTeacher = true; break; }
-                    else if (item.UserLogin == inputLogin && item.UserPassword == intputPassword && item.UserStanding == 2)
-                    { input = true; break; }
+                    if (item.UserLogin == inputLogin && item.UserPassword == intputPassword)
+                    {
+                        currentUser = item;
+                        currentUser.UserStatus = true;
+                        input = true;
+                        break;
+                    }
                 }
             }
-            Console.WriteLine(input + " " + isAdmin + " " + isTeacher);
-            //if(input && )
+
+            
+            //if(input && currentUser.IsAdmin)
+
             /*
             foreach (var item in tests)
             {
@@ -75,10 +87,23 @@ namespace ProbableFinalExer
 
             int selectTestUser = int.Parse(Console.ReadLine());
             var selectTest = tests.Where(x => x.IDTest == selectTestUser).FirstOrDefault();
-             
+            
             Console.WriteLine("Вы выбрали тест - " + "\"" + selectTest.testName + "\"");
 
             var selectQuestion = questions.Where(x => x.testID == selectTestUser).OrderBy(question => question.questionNumber).ToList();
+            Try newTry = new Try();
+            newTry.IDTry = GetNewTryId(trys);
+            newTry.userID = currentUser.IDUser;
+            newTry.testID = selectTestUser;
+            newTry.Start = "Yes";
+            //DateTime customDate = new DateTime(2023, 4, 9, 12, 30, 0, 0);
+            newTry.Finish = "NO";
+            DatabaseConnector.AddTry(newTry);
+            trys.Add(newTry);
+            foreach (var item in trys)
+            {
+                item.PrintInfo();
+            }
 
             int countQuestion = selectQuestion.Count();
 
