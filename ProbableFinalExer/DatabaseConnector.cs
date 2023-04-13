@@ -335,6 +335,27 @@ namespace ProbableFinalExer
                 }
             }
         }
+
+        public static void UpdateTry(Try updateTry)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "UPDATE TryUsers SET FinishTime = @FinishTime where TryId = @TryId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FinishTime", updateTry.Finish);
+                    command.Parameters.AddWithValue("@TryId", updateTry.IDTry);
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
+    
         public static void AddTest(Test newTest)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))

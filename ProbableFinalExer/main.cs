@@ -140,6 +140,9 @@ namespace ProbableFinalExer
 
                     }
                 }
+                newTry.Finish = DateTime.Now.ToString();
+                DatabaseConnector.UpdateTry(newTry);
+
                 var selectRes = results.Where(x => x.testID == selectTestUser).ToList();
 
                 Console.WriteLine("\tРезультаты:");
