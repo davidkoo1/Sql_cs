@@ -281,11 +281,43 @@ namespace ProbableFinalExer
 
             return ret;
         }
+
+        public static List<UserAnswer> GetAnswerUser()
+        {
+            List<UserAnswer> ret = new List<UserAnswer>();
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                connection.Open();
+
+                SqlCommand command;
+                SqlDataReader dataReader;
+                string GetSqlCommand;
+
+                GetSqlCommand = "select * FROM TryUsers";
+
+                command = new SqlCommand(GetSqlCommand, connection);
+                dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    UserAnswer ua = new UserAnswer();
+
+                    ua.tryID = dataReader.GetInt32(0);
+                    ua.answerID = dataReader.GetInt32(1);
+
+                    ret.Add(ua);
+                }
+
+            }
+
+            return ret;
+        }
         public static void AddTry(Try newTry)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
             {
-                String query = "INSERT INTO Test VALUES (@TryId, @IdUser, @IdTest, @Start, @Finish)";
+                String query = "INSERT INTO TryUsers VALUES (@TryId, @IdUser, @IdTest, @Start, @Finish)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

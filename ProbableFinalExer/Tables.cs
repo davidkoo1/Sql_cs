@@ -93,12 +93,19 @@ namespace ProbableFinalExer
         public int IDTry;
         public int userID;
         public int testID;
-        public string Start, Finish;
+        public string Start;
+        public string Finish;
 
         public void PrintInfo()
         {
             Console.WriteLine(IDTry + " " + userID + " " + testID + " " + Start + " " + Finish);
         }
+    }
+
+    public class UserAnswer
+    {
+        public int tryID;
+        public int answerID;
     }
     //View
     public class Score
