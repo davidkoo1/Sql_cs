@@ -294,7 +294,7 @@ namespace ProbableFinalExer
                 SqlDataReader dataReader;
                 string GetSqlCommand;
 
-                GetSqlCommand = "select * FROM TryUsers";
+                GetSqlCommand = "select * FROM UserAnswer";
 
                 command = new SqlCommand(GetSqlCommand, connection);
                 dataReader = command.ExecuteReader();
@@ -313,6 +313,8 @@ namespace ProbableFinalExer
 
             return ret;
         }
+
+
         public static void AddTry(Try newTry)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
@@ -335,6 +337,7 @@ namespace ProbableFinalExer
                 }
             }
         }
+
 
         public static void UpdateTry(Try updateTry)
         {
@@ -390,6 +393,26 @@ namespace ProbableFinalExer
                     command.Parameters.AddWithValue("@IDQuestion", newQuestion.IDQuestion);
                     command.Parameters.AddWithValue("@questionDescription", newQuestion.questionDescription);
                     
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
+
+        public static void AddTryWithAnswer(UserAnswer newAnswerTry)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "INSERT INTO UserAnswer VALUES (@IdTry, @IdAnswer)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@IdTry", newAnswerTry.tryID);
+                    command.Parameters.AddWithValue("@IdAnswer", newAnswerTry.answerID);
+
 
                     connection.Open();
                     command.ExecuteNonQuery();

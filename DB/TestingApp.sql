@@ -156,10 +156,11 @@ CREATE TABLE TryUsers
 TryId INT PRIMARY KEY,
 IdUser INT FOREIGN KEY REFERENCES Users(UserId),
 IdTest INT FOREIGN KEY REFERENCES Test(TestId),
-Start VARCHAR(30),
-Finish VARCHAR(30)
+StartTime VARCHAR(30),
+FinishTime VARCHAR(30)
 )
 select * from TryUsers
+UPDATE TryUsers set FinishTime = 'Yes' where TryId = 2
 
 CREATE TABLE UserAnswer
 (

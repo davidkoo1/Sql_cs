@@ -106,6 +106,11 @@ namespace ProbableFinalExer
     {
         public int tryID;
         public int answerID;
+
+        public void PrintfInfo()
+        {
+            Console.WriteLine(tryID + " " + answerID);
+        }
     }
     //View
     public class Score
