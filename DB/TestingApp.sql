@@ -132,7 +132,7 @@ UserStanding INT,
 UserWhoRegId INT,
 UserStatus BIT, --2 значения 1 -true, 0 - false; статус если пользователь онлайн
 )
-select * FROM Users
+select * FROM Users where UserLogin = 'admin' and UserPassword = 'admin'
 CREATE TABLE Tags
 (
 TagId INT PRIMARY KEY,
@@ -168,8 +168,12 @@ IdTry INT FOREIGN KEY REFERENCES TryUsers(TryId),
 IdAnswer INT FOREIGN KEY REFERENCES OptionAnswer(AnswerId)
 )
 
+select * from TryUsers
+select * from UserAnswer
 
 ALTER TABLE Test
 ADD IDCreater INT FOREIGN KEY REFERENCES Users(UserId)
 
+
+delete from TryUsers where TryId > 0
 --то что выше добавлено, то что ниже еще нет

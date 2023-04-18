@@ -10,6 +10,7 @@ namespace ProbableFinalExer
 
         public static string ConnectionStr = @"Data Source=DESKTOP-IQ404L4;Initial Catalog=TestingApp;Integrated Security=true;";
 
+        //view
         public static List<Score> GetScoreFromTets()
         {
             List<Score> ret = new List<Score>();
@@ -39,6 +40,9 @@ namespace ProbableFinalExer
             }
             return ret;
         }
+
+
+
 
         public static List<Test> GetTests()
         {
@@ -72,6 +76,29 @@ namespace ProbableFinalExer
             }
             return ret;
         }
+        public static void AddTest(Test newTest)
+                {
+                    using (SqlConnection connection = new SqlConnection(ConnectionStr))
+                    {
+                        String query = "INSERT INTO Test VALUES (@TestId, @TestName, @TestTime, @TestDiscripcion)";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@TestId", newTest.IDTest);
+                            command.Parameters.AddWithValue("@TestName", newTest.testName);
+                            command.Parameters.AddWithValue("@TestTime", newTest.testTime);
+                            command.Parameters.AddWithValue("@TestDiscripcion", newTest.testDiscripcion);
+
+
+                            connection.Open();
+                            command.ExecuteNonQuery();
+
+
+                        }
+                    }
+                }
+
+
 
 
         public static List<Question> GetQuestions()
@@ -107,6 +134,27 @@ namespace ProbableFinalExer
 
             return ret;
         }
+        public static void AddQuestions(Question newQuestion)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "INSERT INTO Test VALUES (@testID, @IDQuestion, @questionDescription)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@testID", newQuestion.testID);
+                    command.Parameters.AddWithValue("@IDQuestion", newQuestion.IDQuestion);
+                    command.Parameters.AddWithValue("@questionDescription", newQuestion.questionDescription);
+                    
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
+
 
 
         public static List<OptionAnswer> GetOptionAnswer()
@@ -143,6 +191,7 @@ namespace ProbableFinalExer
         }
 
 
+
         public static List<Result> GetResult()
         {
             List<Result> ret = new List<Result>();
@@ -176,6 +225,8 @@ namespace ProbableFinalExer
             return ret;
         }
 
+
+
         public static List<Temp> GetTemp()
         {
             List<Temp> ret = new List<Temp>();
@@ -208,6 +259,8 @@ namespace ProbableFinalExer
 
             return ret;
         }
+
+
 
         public static List<User> GetUsers()
         {
@@ -246,7 +299,35 @@ namespace ProbableFinalExer
 
             return ret;
         }
+        public static void AddUser(User newUser)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "INSERT INTO Users VALUES (@UserId, @UserLogin, @UserPassword, @UserName, @UserSurname, @UserStanding, @UserWhoRegId, @UserStatus)";
 
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", newUser.IDUser);
+                    command.Parameters.AddWithValue("@UserLogin", newUser.UserLogin);
+                    command.Parameters.AddWithValue("@UserPassword", newUser.UserPassword);
+                    command.Parameters.AddWithValue("@UserName", newUser.UserName);
+                    command.Parameters.AddWithValue("@UserSurname", newUser.UserSurname);
+                    command.Parameters.AddWithValue("@UserStanding", newUser.UserStanding);
+                    command.Parameters.AddWithValue("@UserWhoRegId", newUser.UserWhoRegId);
+                    command.Parameters.AddWithValue("@UserStatus", newUser.UserStatus);
+
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
+        
+        
+        
         public static List<Try> GetTry()
         {
             List<Try> ret = new List<Try>();
@@ -281,6 +362,94 @@ namespace ProbableFinalExer
 
             return ret;
         }
+        public static void AddTry(Try newTry)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "INSERT INTO TryUsers VALUES (@TryId, @IdUser, @IdTest, @Start, @Finish)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TryId", newTry.IDTry);
+                    command.Parameters.AddWithValue("@IdUser", newTry.userID);
+                    command.Parameters.AddWithValue("@IdTest", newTry.testID);
+                    command.Parameters.AddWithValue("@Start", newTry.Start);
+                    command.Parameters.AddWithValue("@Finish", newTry.Finish);
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
+        public static void UpdateTry(Try updateTry)//Uddate only finishtime
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "UPDATE TryUsers SET FinishTime = @FinishTime where TryId = @TryId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FinishTime", updateTry.Finish);
+                    command.Parameters.AddWithValue("@TryId", updateTry.IDTry);
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
+
+        public static void UpdateUser(User updateUser)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                String query = "UPDATE Users SET UserLogin = @UserLogin, UserPassword = @UserPassword, UserName = @UserName, UserSurname = @UserSurname, UserStanding = @UserStanding WHERE UserId = @UserId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", updateUser.IDUser);
+                    command.Parameters.AddWithValue("@UserLogin", updateUser.UserLogin);
+                    command.Parameters.AddWithValue("@UserPassword", updateUser.UserPassword);
+                    command.Parameters.AddWithValue("@UserName", updateUser.UserName);
+                    command.Parameters.AddWithValue("@UserSurname", updateUser.UserSurname);
+                    command.Parameters.AddWithValue("@UserStanding", updateUser.UserStanding);
+
+
+
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+        }
+
+        public static void DeleteUser(User deleteUser)
+        {
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStr))
+            {
+                string query = "DELETE FROM Users WHERE UserId = @UserId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", deleteUser.IDUser);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+
+                }
+            }
+
+        }
+
 
         public static List<UserAnswer> GetAnswerUser()
         {
@@ -313,95 +482,6 @@ namespace ProbableFinalExer
 
             return ret;
         }
-
-
-        public static void AddTry(Try newTry)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectionStr))
-            {
-                String query = "INSERT INTO TryUsers VALUES (@TryId, @IdUser, @IdTest, @Start, @Finish)";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@TryId", newTry.IDTry);
-                    command.Parameters.AddWithValue("@IdUser", newTry.userID);
-                    command.Parameters.AddWithValue("@IdTest", newTry.testID);
-                    command.Parameters.AddWithValue("@Start", newTry.Start);
-                    command.Parameters.AddWithValue("@Finish", newTry.Finish);
-
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-
-
-                }
-            }
-        }
-
-
-        public static void UpdateTry(Try updateTry)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectionStr))
-            {
-                String query = "UPDATE TryUsers SET FinishTime = @FinishTime where TryId = @TryId";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@FinishTime", updateTry.Finish);
-                    command.Parameters.AddWithValue("@TryId", updateTry.IDTry);
-
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-
-
-                }
-            }
-        }
-    
-        public static void AddTest(Test newTest)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectionStr))
-            {
-                String query = "INSERT INTO Test VALUES (@TestId, @TestName, @TestTime, @TestDiscripcion)";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@TestId", newTest.IDTest);
-                    command.Parameters.AddWithValue("@TestName", newTest.testName);
-                    command.Parameters.AddWithValue("@TestTime", newTest.testTime);
-                    command.Parameters.AddWithValue("@TestDiscripcion", newTest.testDiscripcion);
-
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-
-
-                }
-            }
-        }
-
-        public static void AddQuestions(Question newQuestion)
-        {
-            using (SqlConnection connection = new SqlConnection(ConnectionStr))
-            {
-                String query = "INSERT INTO Test VALUES (@testID, @IDQuestion, @questionDescription)";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@testID", newQuestion.testID);
-                    command.Parameters.AddWithValue("@IDQuestion", newQuestion.IDQuestion);
-                    command.Parameters.AddWithValue("@questionDescription", newQuestion.questionDescription);
-                    
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-
-
-                }
-            }
-        }
-
         public static void AddTryWithAnswer(UserAnswer newAnswerTry)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))

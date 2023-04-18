@@ -10,6 +10,7 @@ namespace ProbableFinalExer
         public string testDiscripcion;
         public int CreaterID;
 
+        //public string IsCreater { }
         public void PrintInfo()
         {
             Console.WriteLine(IDTest + " " + testName + " " + testTime + " " + testDiscripcion + " " + CreaterID);
@@ -81,10 +82,12 @@ namespace ProbableFinalExer
         public bool IsAdmin { get { return UserStanding == 0; } }
         public bool IsTeacher { get { return UserStanding == 1; } }
 
+        public string IsStanding { get { if (UserStanding == 0) return "ADMIN"; else if (UserStanding == 1) return "Teacher"; else return "Student"; } }
+        public string IsStatus { get { if (UserStatus) return "Online"; else return "Offline"; } }
         public void PrintInfo()
         {
-            Console.WriteLine(IDUser + " " + UserLogin + " " + UserPassword + " " + UserName + " " + UserSurname + " " + UserStanding + " " +
-                + UserWhoRegId + " " + UserStatus);
+            Console.WriteLine(IDUser + " " + UserLogin + " " + UserPassword + " " + UserName + " " + UserSurname + " " + IsStanding + " " +
+                + UserWhoRegId + " " + IsStatus);
         }
     }
 
