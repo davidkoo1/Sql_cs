@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ProbableFinalExer
 {
@@ -27,32 +28,84 @@ namespace ProbableFinalExer
             return users.Max(x => x.IDUser) + 1;
         }
 
+        static private List<Test> tests = new List<Test>();
+        static private List<Question> questions = new List<Question>();
+        static private List<OptionAnswer> answers = new List<OptionAnswer>();
+        static private List<Result> results = new();
+        static private List<Temp> temps = new List<Temp>();
+        static private List<User> users = new List<User>();
+        static private List<Try> trys = new List<Try>();
+        static private List<UserAnswer> userAnswers = new List<UserAnswer>();
+        
+        static void Reader()
+        {
+            tests = DatabaseConnector.GetTests();
+            questions = DatabaseConnector.GetQuestions();
+            answers = DatabaseConnector.GetOptionAnswer();
+            results = DatabaseConnector.GetResult();
+            temps = DatabaseConnector.GetTemp();
+            users = DatabaseConnector.GetUsers();
+            trys = DatabaseConnector.GetTry();
+            userAnswers = DatabaseConnector.GetAnswerUser();
+        }
+
+        
+        static async void DataReader()
+        {
+            await Task.Run(() => //асинхроность
+            {
+                while (true)
+                {
+                    //Tables
+                    Reader();
+                    //View
+                    List<Score> score = DatabaseConnector.GetScoreFromTets();
+                }
+            }
+            );
+        }
+        
+
+        //или
+
+        /*
+        static void DataReader()
+        {
+                while (true)
+                {
+                    Thread.Sleep(1000);//спястя 1 секунду только используем данные
+                    //Tables
+                    tests = DatabaseConnector.GetTests();
+                    questions = DatabaseConnector.GetQuestions();
+                    answers = DatabaseConnector.GetOptionAnswer();
+                    results = DatabaseConnector.GetResult();
+                    temps = DatabaseConnector.GetTemp();
+                    users = DatabaseConnector.GetUsers();
+                    trys = DatabaseConnector.GetTry();
+                    userAnswers = DatabaseConnector.GetAnswerUser();
+                    //View
+                    List<Score> score = DatabaseConnector.GetScoreFromTets();
+                }
+           
+        }
+        static async Task Main(string[] args)
+        {
+
+            new Thread(DataReader).Start(); //поток
+
+            while(true)
+            {
+                int k = int.Parse(Console.ReadLine());
+                if (k == 1)
+                    foreach (var t in trys)
+                        t.PrintInfo();
+            }
+         */
+
         static int Main(string[] args)
         {
-            //вопросы дня
-            /*
-             1. Как устранить логические ошибки(типо повторение кода, мб где-то лучше использовать внутрений sql(типо функции и прочее)
-             2. Как это будет работать не с моего компа(и как сделать чтобы норм работало)
-             3. Дальше визуальная часть или осталось что-то доработать(*теги)
-
-             */
+            DataReader();
             
-            //Tables
-            List<Test> tests = DatabaseConnector.GetTests();
-            List<Question> questions = DatabaseConnector.GetQuestions();
-            List<OptionAnswer> answers = DatabaseConnector.GetOptionAnswer();
-            List<Result> results = DatabaseConnector.GetResult();
-            List<Temp> temps = DatabaseConnector.GetTemp();
-            List<User> users = DatabaseConnector.GetUsers();
-            List<Try> trys = DatabaseConnector.GetTry();
-            List<UserAnswer> userAnswers = DatabaseConnector.GetAnswerUser();
-            //View
-            List<Score> score = DatabaseConnector.GetScoreFromTets();
-/*
-            foreach (var item in users)
-                item.PrintInfo();
-*/
-
 
             User currentUser = new User();
             bool input = false;

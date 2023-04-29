@@ -5,13 +5,13 @@ using System.Data.SqlClient;
 
 namespace ProbableFinalExer
 {
-    public static class DatabaseConnector
+    internal static class DatabaseConnector
     {
 
-        public static string ConnectionStr = @"Data Source=DESKTOP-IQ404L4;Initial Catalog=TestingApp;Integrated Security=true;";
+        internal static readonly string ConnectionStr = @"Data Source=DESKTOP-IQ404L4;Initial Catalog=TestingApp;Integrated Security=true;";
 
         //view
-        public static List<Score> GetScoreFromTets()
+        internal static List<Score> GetScoreFromTets()
         {
             List<Score> ret = new List<Score>();
 
@@ -44,7 +44,7 @@ namespace ProbableFinalExer
 
 
 
-        public static List<Test> GetTests()
+        internal static List<Test> GetTests()
         {
             List<Test> ret = new List<Test>();
 
@@ -76,7 +76,7 @@ namespace ProbableFinalExer
             }
             return ret;
         }
-        public static void AddTest(Test newTest)
+        internal static void AddTest(Test newTest)
                 {
                     using (SqlConnection connection = new SqlConnection(ConnectionStr))
                     {
@@ -101,7 +101,7 @@ namespace ProbableFinalExer
 
 
 
-        public static List<Question> GetQuestions()
+        internal static List<Question> GetQuestions()
         {
             List<Question> ret = new List<Question>();
 
@@ -134,7 +134,7 @@ namespace ProbableFinalExer
 
             return ret;
         }
-        public static void AddQuestions(Question newQuestion)
+        internal static void AddQuestions(Question newQuestion)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
             {
@@ -157,7 +157,7 @@ namespace ProbableFinalExer
 
 
 
-        public static List<OptionAnswer> GetOptionAnswer()
+        internal static List<OptionAnswer> GetOptionAnswer()
         {
             List<OptionAnswer> ret = new List<OptionAnswer>();
 
@@ -192,7 +192,7 @@ namespace ProbableFinalExer
 
 
 
-        public static List<Result> GetResult()
+        internal static List<Result> GetResult()
         {
             List<Result> ret = new List<Result>();
 
@@ -227,7 +227,7 @@ namespace ProbableFinalExer
 
 
 
-        public static List<Temp> GetTemp()
+        internal static List<Temp> GetTemp()
         {
             List<Temp> ret = new List<Temp>();
 
@@ -262,7 +262,7 @@ namespace ProbableFinalExer
 
 
 
-        public static List<User> GetUsers()
+        internal static List<User> GetUsers()
         {
             List<User> ret = new List<User>();
 
@@ -299,7 +299,7 @@ namespace ProbableFinalExer
 
             return ret;
         }
-        public static void AddUser(User newUser)
+        internal static void AddUser(User newUser)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
             {
@@ -328,7 +328,7 @@ namespace ProbableFinalExer
         
         
         
-        public static List<Try> GetTry()
+        internal static List<Try> GetTry()
         {
             List<Try> ret = new List<Try>();
 
@@ -362,7 +362,7 @@ namespace ProbableFinalExer
 
             return ret;
         }
-        public static void AddTry(Try newTry)
+        internal static void AddTry(Try newTry)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
             {
@@ -384,7 +384,7 @@ namespace ProbableFinalExer
                 }
             }
         }
-        public static void UpdateTry(Try updateTry)//Uddate only finishtime
+        internal static void UpdateTry(Try updateTry)//Uddate only finishtime
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
             {
@@ -404,7 +404,7 @@ namespace ProbableFinalExer
             }
         }
 
-        public static void UpdateUser(User updateUser)
+        internal static void UpdateUser(User updateUser)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
             {
@@ -430,7 +430,7 @@ namespace ProbableFinalExer
             }
         }
 
-        public static void DeleteUser(User deleteUser)
+        internal static void DeleteUser(User deleteUser)
         {
 
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
@@ -451,7 +451,7 @@ namespace ProbableFinalExer
         }
 
 
-        public static List<UserAnswer> GetAnswerUser()
+        internal static List<UserAnswer> GetAnswerUser()
         {
             List<UserAnswer> ret = new List<UserAnswer>();
 
@@ -482,7 +482,7 @@ namespace ProbableFinalExer
 
             return ret;
         }
-        public static void AddTryWithAnswer(UserAnswer newAnswerTry)
+        internal static void AddTryWithAnswer(UserAnswer newAnswerTry)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStr))
             {

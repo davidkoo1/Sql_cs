@@ -2,126 +2,126 @@
 
 namespace ProbableFinalExer
 {
-    public class Test
+    internal class Test
     {
-        public int IDTest;
-        public string testName;
-        public int testTime;
-        public string testDiscripcion;
-        public int CreaterID;
+        internal int IDTest;
+        internal string testName;
+        internal int testTime;
+        internal string testDiscripcion;
+        internal int CreaterID;
 
-        //public string IsCreater { }
-        public void PrintInfo()
+        //internal string IsCreater { }
+        internal void PrintInfo()
         {
             Console.WriteLine(IDTest + " " + testName + " " + testTime + " " + testDiscripcion + " " + CreaterID);
         }
     }
 
-    public class Question
+    internal class Question
     {
-        public int testID;
-        public int IDQuestion;
-        public int questionNumber;
-        public string questionDescription;
+        internal int testID;
+        internal int IDQuestion;
+        internal int questionNumber;
+        internal string questionDescription;
 
-        public void PrintfInfo()
+        internal void PrintfInfo()
         {
             Console.WriteLine(testID + " " + IDQuestion + " " + questionNumber + " " + questionDescription);
         }
     }
 
-    public class OptionAnswer
+    internal class OptionAnswer
     {
-        public int IDAnswer;
-        public int questionID;
-        public string answerDescription;
+        internal int IDAnswer;
+        internal int questionID;
+        internal string answerDescription;
 
-        public void PrintInfo()
+        internal void PrintInfo()
         {
             Console.WriteLine(IDAnswer + " " + questionID + " " + answerDescription);
         }
     }
 
-    public class Result
+    internal class Result
     {
-        public int testID;
-        public int IDResult;
-        public string resultDescripcion;
+        internal int testID;
+        internal int IDResult;
+        internal string resultDescripcion;
 
-        public void PrintInfo()
+        internal void PrintInfo()
         {
             Console.WriteLine(testID + " " + IDResult + " " + resultDescripcion);
         }
     }
 
-    public class Temp
+    internal class Temp
     {
-        public int answerID;
-        public int resultID;
-        public decimal countScore;
+        internal int answerID;
+        internal int resultID;
+        internal decimal countScore;
 
-        public void PrintInfo()
+        internal void PrintInfo()
         {
             Console.WriteLine(answerID + " " + resultID + " " + countScore);
         }
     }
 
 
-    public class User
+    internal class User
     {
-        public int IDUser;
-        public string UserLogin;
-        public string UserPassword;
-        public string UserName;
-        public string UserSurname;
-        public int UserStanding;
-        public int UserWhoRegId;
-        public bool UserStatus;
+        internal int IDUser;
+        internal string UserLogin;
+        internal string UserPassword;
+        internal string UserName;
+        internal string UserSurname;
+        internal int UserStanding;
+        internal int UserWhoRegId;
+        internal bool UserStatus;
 
         
-        public bool IsAdmin { get { return UserStanding == 0; } }
-        public bool IsTeacher { get { return UserStanding == 1; } }
+        internal bool IsAdmin { get { return UserStanding == 0; } }
+        internal bool IsTeacher { get { return UserStanding == 1; } }
 
-        public string IsStanding { get { if (UserStanding == 0) return "ADMIN"; else if (UserStanding == 1) return "Teacher"; else return "Student"; } }
-        public string IsStatus { get { if (UserStatus) return "Online"; else return "Offline"; } }
-        public void PrintInfo()
+        internal string IsStanding { get { if (UserStanding == 0) return "ADMIN"; else if (UserStanding == 1) return "Teacher"; else return "Student"; } }
+        internal string IsStatus { get { if (UserStatus) return "Online"; else return "Offline"; } }
+        internal void PrintInfo()
         {
             Console.WriteLine(IDUser + " " + UserLogin + " " + UserPassword + " " + UserName + " " + UserSurname + " " + IsStanding + " " +
                 + UserWhoRegId + " " + IsStatus);
         }
     }
 
-    public class Try
+    internal class Try
     {
-        public int IDTry;
-        public int userID;
-        public int testID;
-        public string Start;
-        public string Finish;
+        internal int IDTry;
+        internal int userID;
+        internal int testID;
+        internal string Start;
+        internal string Finish;
 
-        public void PrintInfo()
+        internal void PrintInfo()
         {
             Console.WriteLine(IDTry + " " + userID + " " + testID + " " + Start + " " + Finish);
         }
     }
 
-    public class UserAnswer
+    internal class UserAnswer
     {
-        public int tryID;
-        public int answerID;
+        internal int tryID;
+        internal int answerID;
 
-        public void PrintfInfo()
+        internal void PrintfInfo()
         {
             Console.WriteLine(tryID + " " + answerID);
         }
     }
     //View
-    public class Score
+    internal class Score
     {
-        public int testID;
-        public decimal score;
+        internal int testID;
+        internal decimal score;
 
-        public void PrintInfo()
+        internal void PrintInfo()
         {
             Console.WriteLine(testID + " " + score);
         }

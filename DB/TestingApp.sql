@@ -160,6 +160,7 @@ StartTime VARCHAR(30),
 FinishTime VARCHAR(30)
 )
 select * from TryUsers
+INSERT INTO TryUsers VALUES(5, 3, 1, 'Yes', 'NO')
 UPDATE TryUsers set FinishTime = 'Yes' where TryId = 2
 
 CREATE TABLE UserAnswer
