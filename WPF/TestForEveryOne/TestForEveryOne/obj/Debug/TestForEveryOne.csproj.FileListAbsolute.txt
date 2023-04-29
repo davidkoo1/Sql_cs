@@ -20,3 +20,25 @@ C:\Users\sverc\OneDrive\Рабочий стол\TestForEveryOne\TestForEveryOne\
 C:\Users\sverc\OneDrive\Рабочий стол\TestForEveryOne\TestForEveryOne\bin\Debug\MahApps.Metro.IconPacks.Material.xml
 C:\Users\sverc\OneDrive\Рабочий стол\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.csproj.CopyComplete
 C:\Users\sverc\OneDrive\Рабочий стол\TestForEveryOne\TestForEveryOne\obj\Debug\App.baml
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\TestForEveryOne.exe.config
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\TestForEveryOne.exe
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\TestForEveryOne.pdb
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.csproj.AssemblyReference.cache
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\MainWindow.baml
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\App.baml
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\MainWindow.g.cs
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\App.g.cs
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne_MarkupCompile.cache
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.g.resources
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.Properties.Resources.resources
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.csproj.GenerateResource.cache
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.csproj.CoreCompileInputs.cache
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.csproj.CopyComplete
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.exe
+C:\Users\sverc\OneDrive\Рабочий стол\the best уроки от лучшего человека\CS\ProbableFinalExer\WPF\TestForEveryOne\TestForEveryOne\obj\Debug\TestForEveryOne.pdb

@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
 
 
 namespace TestForEveryOne
@@ -31,6 +33,8 @@ namespace TestForEveryOne
             public string Name { get; set; }
             public string Description { get; set; }
             public string Time { get; set; }
+            public string Autor { get; set; }
+           // public Brush bgColor { get; set; }
         }
         
         public MainWindow()
@@ -40,15 +44,18 @@ namespace TestForEveryOne
             /*var conv = new BrushConverter();
             ObservableCollection<Test> tests = new ObservableCollection<Test>();
             tests.Add(new Test { testName = "FirstTest", description = "The First Test", time = 30, Autor = "Me" });*/
-           
+            listDataGrid.ItemsSource = GetTestList();
+
         }
+
+
 
         private List<Test> GetTestList()
         {
             List<Test> testList = new List<Test>();
-            testList.Add(new Test() { Name = "Test 1", Description = "Description 1", Time = "10:00" });
-            testList.Add(new Test() { Name = "Test 2", Description = "Description 2", Time = "12:00" });
-            testList.Add(new Test() { Name = "Test 3", Description = "Description 3", Time = "14:00" });
+            testList.Add(new Test() { Name = "Test 1", Description = "Description 1", Time = "10:00", Autor = "Autor1" });
+            testList.Add(new Test() { Name = "Test 2", Description = "Description 2", Time = "12:00", Autor = "Autor2" });
+            testList.Add(new Test() { Name = "Test 3", Description = "Description 3", Time = "14:00", Autor = "Autor3" });
             return testList;
         }
 
@@ -59,30 +66,17 @@ namespace TestForEveryOne
             if (isStatusNow) border.Background = new SolidColorBrush(Colors.Green);
             FullName.Text = "Full Name"; //var str
             standingStatus.Text = "ADMIN"; //variable str
-            if (standingStatus.Text == "Student")
+            if (standingStatus.Text == "ADMIN")
             {
                // eyeForTeacher.Visibility = Visibility.Collapsed; //Colum eye
                 Users.Visibility = Visibility.Collapsed; //UsersListsButtom
+                
+
             }
 
 
-            /*
-                                     <DataGridTemplateColumn CanUserResize="False" Width="auto" x:Name="eyeForTeacher" Visibility="Visible">
-                            <DataGridTemplateColumn.HeaderTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border Background="#00CED1">
-                                            <Button>
-                                                <Icon:PackIconMaterial Kind="Eye" Foreground="#00CED1"/>
-                                            </Button>
-                                        </Border>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.HeaderTemplate>
-                        </DataGridTemplateColumn>
-             */
-
         }
+
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if(e.ChangedButton == MouseButton.Left)
